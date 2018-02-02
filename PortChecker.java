@@ -7,12 +7,10 @@ class PortChecker {
 	String host = scan.nextLine();
       for (int port = 1; port <= 1024; port++) {
          try {
-            Socket socket = new Socket();
-            socket.connect(new InetSocketAddress(host, port), 1000);
+            Socket socket = new Socket(host, port);
             socket.close();
             System.out.println(host + " " + port + " " + " is open");
         } catch (Exception ex) {
-		System.out.println("Error connection");
         }
       }
    }
